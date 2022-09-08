@@ -67,5 +67,22 @@ func main() {
 			fmt.Println("\t", i, v2)
 		}
 	}
+	m["Sean"] = []string{`Taken, not stirred`, `Martinis`, `Women`}
+
+	for k, v := range m {
+		fmt.Println("This is the record for", k)
+		for i, v2 := range v {
+			fmt.Println("\t", i, v2)
+		}
+	}
+	fmt.Println()
+	fmt.Println()
+	delete(m, "Sean")
+	for k, v := range m {
+		fmt.Println("This is the record for", k)
+		for i, v2 := range v {
+			fmt.Println("\t", i, v2)
+		}
+	}
 
 }
