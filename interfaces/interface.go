@@ -13,10 +13,18 @@ type secretAgent struct {
 }
 
 func (s secretAgent) speak() {
-	fmt.Println("I am", s.first, s.last)
+	fmt.Println("The secret agent speak")
 }
 func (p person) speak() {
-	fmt.Println("No License to kill")
+	fmt.Println("The person speak")
+}
+
+type human interface {
+	speak()
+}
+
+func bar(h human) {
+	fmt.Println("I was passed into bar()", h)
 }
 
 func main() {
@@ -29,7 +37,17 @@ func main() {
 		first: "Sean",
 		last:  "Maloney",
 	}
-	fmt.Println(sa1.first, sa1.last, sa1.ltk)
+	p1 := person{
+		first: "Bob",
+		last:  "Saget",
+	}
+
+	//fmt.Println(sa1.first, sa1.last, sa1.ltk)
 	sa1.speak()
 	p.speak()
+	p1.speak()
+	(bar(sa1))
+	(bar(p))
+	(bar(p1))
+
 }
